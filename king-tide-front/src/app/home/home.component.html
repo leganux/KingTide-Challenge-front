@@ -1,0 +1,155 @@
+<nav class="navbar navbar-expand-lg bg-light" data-bs-theme="light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">KingTide</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
+            aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Inicio
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Repositorio BackEnd </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Repositorio FrontEnd </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">API Docs</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-12">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+        <li class="breadcrumb-item active">Usuarios</li>
+      </ol>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+
+              <h1 class="align-self-center">Bienvenido</h1>
+
+
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-8">
+              <h2>Usuarios registrados</h2>
+              <div style="max-height: 500px; overflow-y:auto ">
+
+                <table class="table table-striped ">
+                  <thead>
+                  <tr class="table-dark">
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Apodo</th>
+                    <th scope="col">RFC</th>
+                    <th scope="col">Cumpleaños</th>
+                    <th scope="col">Fotografía</th>
+                    <th scope="col">acciones</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+
+
+                  <tr *ngFor="let item of listOfUsers">
+
+                    <td>{{item.birthday}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.lastName}}</td>
+                    <td>{{item.surName}}</td>
+                    <td>{{item.rfc}}</td>
+                    <td>{{item.birthday}}</td>
+                    <td>{{item.photography}}</td>
+                    <td>
+                      <button (click)="deleteUser(item)" class="btn btn-outline-dark btn-sm">
+                        <i class=" text-danger fa-regular fa-trash-can"></i>
+                      </button>
+                      <button (click)="updateUser(item)" class="btn btn-outline-dark btn-sm">
+                        <i class=" text-info fa-regular fa-pen-to-square"></i>
+                      </button>
+                      <br>
+                      <button (click)="uploadCV(item)" class="btn btn-outline-dark btn-sm">
+                        <i class=" text-warning fa-solid fa-file-arrow-up"></i>
+                      </button>
+                      <button (click)="viewCV(item)" class="btn btn-outline-dark btn-sm">
+                        <i class=" text-success fa-regular fa-eye"></i>
+                      </button>
+                    </td>
+
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+            <div class="col-md-4">
+              <h2>{{titleNewUpdate}}</h2>
+              <hr>
+              <label>Nombre</label>
+              <input type="text" [(ngModel)]="name" name="nae" id="name" class="form-control">
+              <label>Apellido</label>
+              <input type="text" [(ngModel)]="last_name" name="last_name" id="last_name" class="form-control">
+              <label>Apodo</label>
+              <input type="text" [(ngModel)]="sur_name" name="sur_name" id="sur_name" class="form-control">
+              <label>RFC</label>
+              <input type="text" [(ngModel)]="rfc" name="rfc" id="rfc" class="form-control">
+              <label>Cumpleaños</label>
+              <input type="date" [(ngModel)]="birthday" name="birthday" id="birthday" class="form-control">
+              <label>Fotografía</label>
+              <input type="file" (change)="onFileSelected($event)" [(ngModel)]="photo" name="photo" id="photo"
+                     class="form-control">
+              <br>
+              <div class="row">
+                <div class="col-6">
+                  <div class="d-grid gap-2">
+                    <button class="btn btn-outline-danger btn-block" (click)="clearForm()" id="cancel">Cancelar</button>
+                  </div>
+
+                </div>
+                <div class="col-6">
+                  <div class="d-grid gap-2">
+                    <button class="btn btn-outline-success btn btn-block" (click)="saveForm()" id="save">Guardar
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          (c) 2023 Angel Erick Cruz Olivera - <a href="mailto:erick.cruz@leganux.com">Enviame un correro</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
