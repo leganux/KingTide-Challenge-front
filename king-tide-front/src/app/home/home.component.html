@@ -13,13 +13,15 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Repositorio BackEnd </a>
+          <a class="nav-link" target="_blank" href="https://github.com/leganux/KingTide-Challenge">Repositorio
+            BackEnd </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Repositorio FrontEnd </a>
+          <a class="nav-link" target="_blank" href="https://github.com/leganux/KingTide-Challenge-front">Repositorio
+            FrontEnd </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">API Docs</a>
+          <a class="nav-link" target="_blank" href="https://thejavascript.zone/docs">API Docs</a>
         </li>
 
       </ul>
@@ -78,13 +80,13 @@
 
                   <tr *ngFor="let item of listOfUsers">
 
-                    <td>{{item.birthday}}</td>
+                    <td>{{item.id}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.lastName}}</td>
                     <td>{{item.surName}}</td>
                     <td>{{item.rfc}}</td>
-                    <td>{{item.birthday}}</td>
-                    <td>{{item.photography}}</td>
+                    <td>{{(item.birthday)}}</td>
+                    <td><img width="100px" class="img-fluid" src="{{item.profilePicture}}"></td>
                     <td>
                       <button (click)="deleteUser(item)" class="btn btn-outline-dark btn-sm">
                         <i class=" text-danger fa-regular fa-trash-can"></i>
@@ -121,7 +123,7 @@
               <label>Cumpleaños</label>
               <input type="date" [(ngModel)]="birthday" name="birthday" id="birthday" class="form-control">
               <label>Fotografía</label>
-              <input type="file" (change)="onFileSelected($event)" [(ngModel)]="photo" name="photo" id="photo"
+              <input type="file" (change)="onFileSelected($event)" name="photo" id="photo"
                      class="form-control">
               <br>
               <div class="row">
